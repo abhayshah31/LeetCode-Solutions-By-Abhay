@@ -1,0 +1,27 @@
+class Solution {
+    public int maxAscendingSum(int[] nums) {
+        int len = nums.length;
+        int max = nums[0];
+        int sum = nums[0];
+        int maxsum = 0;
+        int res = 0;
+        for (int i = 1; i < len; i++) {
+            if (max < nums[i]) {
+                sum += nums[i];
+                max = nums[i];
+            } else {
+                if (sum > maxsum) {
+                    maxsum = sum;
+                }
+                max = nums[i];
+                sum = nums[i];
+            }
+        }
+        if (sum > maxsum) {
+            res = sum;
+        } else {
+            res = maxsum;
+        }
+        return res;
+    }
+}
