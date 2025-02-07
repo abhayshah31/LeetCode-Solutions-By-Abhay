@@ -1,0 +1,14 @@
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        int a = nums.length;
+        ArrayList<Integer> tar = new ArrayList<>();
+        for (int i = 0; i < a; i++) {
+            tar.add(index[i], nums[i]);
+        }
+
+        for (int i = 0; i < tar.size(); i++) {
+            nums[i] = tar.get(i);
+        }
+        return nums;
+    }
+}
