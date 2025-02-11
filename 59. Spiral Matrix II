@@ -1,0 +1,38 @@
+class Solution {
+    public int[][] generateMatrix(int n) {
+        int mat[][] = new int[n][n];
+        int num = 1;
+        int rowstart = 0;
+        int colstart = 0;
+        int rowend = n - 1;
+        int colend = n - 1;
+
+        while (rowstart <= rowend && colstart <= colend) {
+            // top
+            for (int i = colstart; i <= colend; i++) {
+                mat[rowstart][i] = num;
+                num++;
+            }
+            // left
+            for (int i = rowstart + 1; i <= rowend; i++) {
+                mat[i][colend] = num;
+                num++;
+            }
+            // bottom
+            for (int i = colend - 1; i >= colstart; i--) {
+                mat[rowend][i] = num;
+                num++;
+            }
+            // right
+            for (int i = rowend - 1; i > rowstart; i--) {
+                mat[i][colstart] = num;
+                num++;
+            }
+            rowstart++;
+            colstart++;
+            rowend--;
+            colend--;
+        }
+        return mat;
+    }
+}
